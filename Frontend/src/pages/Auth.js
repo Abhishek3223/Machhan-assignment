@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const host = process.env.Host_Dom|| 'http://localhost:5000'
+const host = process.env.Host_Dom;
+
 const Auth = () => {
     const [login, setLogin] = useState(false);
     const history = useNavigate();
