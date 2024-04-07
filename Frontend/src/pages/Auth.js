@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const host = process.env.Host_Dom;
+const host = process.env.REACT_APP_HOST_DOM;
 
 const Auth = () => {
     const [login, setLogin] = useState(false);
     const history = useNavigate();
-
+    console.log(host)
     // ------------login----------------------
 
     const [LoginData, setLoginData] = useState({

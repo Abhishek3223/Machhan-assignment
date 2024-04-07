@@ -15,7 +15,7 @@ const ProductProvider = ({ children }) => {
       }
       const products = await response.json();
       setProducts(products);
-      console.log("Products fetched:", products);
+      // console.log("Products fetched:", products);
     } catch (error) {
       console.error('Error fetching products due to faker api:', error);
     }

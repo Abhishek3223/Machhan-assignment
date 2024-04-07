@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const backend = process.env.Host_Dom || 'http://localhost:5000'
+  const backend = process.env.REACT_APP_HOST_DOM || 'http://localhost:5000'
   // cart state
   const [cart, setCart] = useState([]);
   const [cartItem, setCartItem] = useState();
@@ -31,7 +31,7 @@ const CartProvider = ({ children }) => {
         }
 
         const cartData = await response.json();
-        console.log("Cart data:", cartData);
+        // console.log("Cart data:", cartData);
 
         // Fetch product details for each item in the cart
         const productDetailsPromises = cartData.Data.map(async (item) => {
@@ -44,7 +44,7 @@ const CartProvider = ({ children }) => {
 
         // Resolve all product details promises
         const productDetailsArray = await Promise.all(productDetailsPromises);
-        console.log("Product details:", productDetailsArray);
+        // console.log("Product details:", productDetailsArray);
 
 
 
