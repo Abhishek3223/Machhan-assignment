@@ -2,7 +2,7 @@ const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, './process.env') })
 const conectToMongo = require("./db")
 const Express = require("express")
-const saveDataToMongoDB =require('./GetData')
+const saveDataToMongoDB = require('./GetData')
 
 conectToMongo();
 
@@ -15,12 +15,13 @@ const { send } = require('process');
 const app = Express()
 
 const corsOptions = {
-    // origin: allowedOrigins,
-    // origin: ['http://localhost:3000', process.env.front_Origin],
-    origin: '*',
-    methods: ['GET', 'POST', "PUT"],
+    origin: ['http://localhost:3000', process.env.FrontendPort],
+    methods: ['GET', 'POST', 'PUT'],
     allowedHeaders: ['Content-Type', 'auth-token'],
 };
+
+app.use(cors(corsOptions));
+
 app.use(cors(corsOptions))
 
 const port = process.env.PORT || 5000
